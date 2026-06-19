@@ -1,17 +1,24 @@
-# covid19-rnaseq-deseq2
+# COVID-19 Differential Expression Analysis
 
 ## Objective
-The goal of this project is to...
+The goal of this project is to identify the genes and pathways that are altered in COVID-19 patients compared with healthy controls.
 
-# Differential Expression Analysis
+## Workflow
+Data Acquisition
+→ QC
+→ DESeq2
+→ Visualization
+→ Enrichment Analysis
 
-A reproducible RNA-seq analysis pipeline using...
+## Progress
+✓ Downloaded GEO data
+✓ Parsed count matrix
+✓ Built metadata
+✓ Filtered genes
+✓ Ran DESeq2
+✓ Generated PCA
 
-## Dataset
-
-## Methods
-
-## Key Results
+## Results
 
 ## Repository Structure
 
