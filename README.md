@@ -16,7 +16,7 @@ The goal of this project was to identify the genes and pathways that are altered
 GEO accession GSE152418 contains bulk RNA-seq data generated from human PBMCs using the Illumina NovaSeq 6000 platform. The downloaded count matrix contained 60,683 features across 35 columns, including the gene-identifier column.
 
 The associated sample metadata included:
-| Header 1 | Header 2 |
+| Disease State | Samples |
 | -------- | -------- |
 | COVID-19 | 16 |
 | Healthy | 17 |
@@ -78,6 +78,33 @@ For missing or duplicated symbols, the workflow fell back to an Ensembl identifi
 Significant genes were evaluated with a GO enrichment analysis to identify overrepresented biological processes. Enrichment results were intended to generate biological hypotheses, not to establish causal mechanisms.
 
 ## Results
+
+DESeq2 tested 18,796 genes with non-zero total read counts. At an adjusted p-value threshold of 0.10, the full DESeq2 summary reported the following results:
+| Result category | Genes | Percentage |
+| ------ | ------ | ------|
+| Higher expression in COVID | 4,720 | 25% |
+| Lower expression in COVID | 3,830 | 20% |
+| Outliers | 0 | 0% |
+| Low-count genes removed by independent filtering | 0 | 0% |
+
+Applying the more stringent project threshold of padj < 0.05 and |log2FoldChange| > 1 identified 1,879 differentially expressed genes.
+
+The exported differential-expression table contains the complete ranked results, including:
+- Ensembl ID;
+- Gene symbol
+- Mean normalized expression
+- log2 fold change
+- Standard error
+- Wald test statistic
+- Raw p-value
+- Adjusted p-value.
+
+## Visualizations
+
+The analysis produced:
+- A volcano plot showing statistical significance and effect size
+- A heatmap of the 50 most significant differentially expressed genes
+- A GO enrichment plot summarizing overrepresented biological processes.
 
 ## Repository Structure
 
