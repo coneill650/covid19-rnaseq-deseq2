@@ -1,0 +1,62 @@
+# --------------------------------------------------
+# R and RStudio local files
+# --------------------------------------------------
+.Rhistory
+.RData
+.Ruserdata
+.Rapp.history
+.Rproj.user/
+
+# --------------------------------------------------
+# Environment variables and authentication files
+# --------------------------------------------------
+.Renviron
+.env
+.httr-oauth
+*.httr-oauth
+*_token.rds
+
+# --------------------------------------------------
+# renv local package installations
+# Keep renv.lock and renv/activate.R under version control
+# --------------------------------------------------
+renv/library/
+renv/staging/
+renv/python/
+renv/local/
+renv/cellar/
+renv/sandbox/
+
+# --------------------------------------------------
+# Downloaded and generated data
+# Keep placeholder files so the directories appear on GitHub
+# --------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# --------------------------------------------------
+# R Markdown and knitr-generated cache files
+# --------------------------------------------------
+*_cache/
+*_files/
+.knit.md
+.utf8.md
+
+# --------------------------------------------------
+# Temporary and backup files
+# --------------------------------------------------
+*.tmp
+*.temp
+*.log
+*.bak
+*~
+
+# --------------------------------------------------
+# Operating-system files
+# --------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
