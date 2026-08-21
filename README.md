@@ -208,3 +208,6 @@ Connor O'Neill
 [GitHub](https://github.com/coneill650)
 
 ## License
+The original code in this repository is available under the [MIT License](LICENSE).
+
+The GSE152418 dataset is not redistributed or relicensed by this project. It remains subject to the policies and terms of the NCBI Gene Expression Omnibus and the original study. Third-party R packages remain subject to their respective licenses.
