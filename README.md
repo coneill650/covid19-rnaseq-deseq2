@@ -24,7 +24,7 @@ The associated sample metadata included:
 
 The differential expression comparison in this project only uses the 16 COVID-19 samples and 17 healthy controls. The single convalescent sample is excluded because it does not provide sufficient replication for a separate group comparison (n = 1).
 
-The original GEO study describes RNA-seq profiling of PBMCs from 17 COVID-19 subjects and 17 healthy controls. In the metadata used here, one subject is labeled convalescent; this project preserves that label and documents its exclusion from the primary comparison.
+The original GEO study describes RNA-seq profiling of PBMCs from 17 COVID-19 subjects and 17 healthy controls. In the metadata used here, one subject is labeled convalescent. This project preserves that label and documents its exclusion from the primary comparison.
 
 ## Workflow
 ```mermaid
@@ -40,23 +40,23 @@ flowchart TD
 ```
 
 ## 1. Data acquisition and preparation
-- Downloaded raw counts and sample metadata for GSE152418 from GEO.
-- Matched count-matrix column names to sample titles.
-- Checked for any missing, duplicated, or unmatched samples.
-- Removed the convalescent sample from the COVID-19 versus healthy comparison.
+- Raw counts and sample metadata for GSE152418 were downloaded from GEO.
+- Count-matrix column names were matched to sample titles.
+- Counts and metadata were checked for any missing, duplicated, or unmatched samples.
+- Convalescent sample was removed from the COVID-19 versus healthy comparison.
 
 ## 2. Quality Control
-- Examined library sizes and count distributions.
-- Removed genes with no informative counts.
-- Applied a variance-stabilizing transformation for sample-level visualization.
-- Evaluated sample relationships before interpreting differential expression results.
+- Library sizes and count distributions were examined.
+- Genes with no informative counts were removed.
+- A variance-stabilizing transformation was applied for sample-level visualization.
+- Sample relationships were evaluated before interpreting differential expression results.
 
 ## 3. Differential expression
 
 Differential expression was modeled in DESeq2 using "disease state" as the variable of interest:
 design = ~ disease_state
 
-A gene is considered significant in the focused result set when it meets both criteria:
+A gene was considered significant in the focused result set when it met both criteria:
 - Benjamini-Hochberg adjusted p-value (padj) < 0.05
 - Absolute log2 fold change (|log2FoldChange|) > 1
 
@@ -66,10 +66,10 @@ Positive log2 fold changes indicated higher expression in COVID-19 samples compa
 
 Ensembl identifiers were mapped to gene symbols with AnnotationDbi and org.Hs.eg.db. Version suffixes were removed before mapping when necessary. The original Ensembl identifier was retained in exported tables so that annotations would remain traceable.
 
-Gene symbols are used for:
+Gene symbols were used for:
 - Labels on the volcano plot
 - Row names in the heatmap
-- Readable gene names in result summaries.
+- Readable gene names in result summaries
 
 For missing or duplicated symbols, the workflow fell back to an Ensembl identifier so that rows would remain unique and no result would be silently discarded.
 
@@ -102,9 +102,12 @@ The exported differential-expression table contains the complete ranked results,
 ## Visualizations
 
 The analysis produced:
-- A volcano plot showing statistical significance and effect size
-- A heatmap of the 50 most significant differentially expressed genes
-- A GO enrichment plot summarizing overrepresented biological processes.
+- A volcano plot showing statistical significance and effect size:
+![Volcano plot of COVID-19 versus healthy differential expression](figures/volcano_plot_w_gene_symbols.png)
+- A heatmap of the 50 most significant differentially expressed genes:
+![Heatmap of the top 50 differentially expressed genes](figures/heatmap_top50.png)
+- And a GO enrichment plot summarizing overrepresented biological processes:
+![Gene Ontology enrichment results](figures/go_bp_barplot.png)
 
 ## Repository Structure
 
@@ -130,6 +133,13 @@ covid19-rnaseq-deseq2/
 │   └── 07_final_results.R
 │
 ├── figures/
+│   ├── go_bp_barplot.png
+│   ├── go_bp_dotplot.png
+│   ├── heatmap_top50.png
+│   ├── pca_plot.png
+│   ├── qc_boxplot.png
+│   ├── volcano_plot.png
+│   ├── volcano_plot_w_gene_symbols.png
 │
 ├── results/
 │
