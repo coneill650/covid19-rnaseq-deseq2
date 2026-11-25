@@ -17,12 +17,17 @@ pheno <- pData(eset)
 colnames(pheno)
 
 ### Obtaining the supplementary files for this project:
-getGEOSuppFiles("GSE152418", makeDirectory = TRUE)
-list.files("GSE152418", recursive = TRUE)
+dir.create("data/raw", recursive = TRUE, showWarnings = FALSE)
+getGEOSuppFiles("GSE152418", makeDirectory = TRUE, baseDir = "data/raw")
+list.files("data/raw/GSE152418", recursive = TRUE)
 
 ### Getting a count matrix from the raw counts:
-counts <- read.delim("GSE152418/GSE152418_p20047_Study1_RawCounts.txt.gz",
+counts <- read.delim(file.path("data",
+                               "raw",
+                               "GSE152418",
+                               "GSE152418_p20047_Study1_RawCounts.txt.gz"),
                      check.names = FALSE)
+
 dim(counts)
 head(counts)
 colnames(counts)[1:10]
