@@ -42,3 +42,6 @@ dev.off()
 
 ### Getting the dimensions of the filtered counts:
 dim(filtered_counts)
+
+### Saving sample metadata:
+write.csv(metadata, "data/processed/sample_metadata.csv", row.names = TRUE)
