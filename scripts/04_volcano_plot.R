@@ -75,5 +75,6 @@ ggsave(filename = "figures/volcano_plot_w_gene_symbols.png",
        plot = volcano_plot, width = 9, height = 7, dpi = 300)
 
 ### Writing a symbol-annotated results table:
+dir.create("results", recursive = TRUE, showWarnings = FALSE)
 write.csv(res_df,
           "results/deseq2_results_with_gene_symbols.csv",row.names = FALSE)
