@@ -22,3 +22,7 @@ log_counts <- log2(filtered_counts + 1)
 png("figures/qc_boxplot.png", width = 1400, height = 800)
 boxplot(log_counts, las = 2, outline = FALSE)
 dev.off()
+
+## Saving the filtered counts:
+dir.create("data/processed", recursive = TRUE, showWarnings = FALSE)
+saveRDS(filtered_counts, "data/processed/filtered_counts.rds")
